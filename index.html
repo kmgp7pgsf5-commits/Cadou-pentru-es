@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Para mi niña preciosa ❤️</title>
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 25px 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Georgia, serif;
+  color: #7d2948;
+  background: linear-gradient(135deg, #ffe0eb, #fff0f5, #ffc4d6);
+}
+
+.card {
+  width: 100%;
+  max-width: 440px;
+  padding: 28px 22px;
+  text-align: center;
+  background: rgba(255,255,255,.94);
+  border-radius: 25px;
+  box-shadow: 0 12px 35px #c65a7b30;
+}
+
+h1 { font-size: 27px; }
+
+.subtitle { line-height: 1.7; }
+
+.envelope {
+  font-size: 80px;
+  margin: 16px 0;
+  animation: float 2s ease-in-out infinite;
+}
+
+button {
+  border: 0;
+  border-radius: 30px;
+  padding: 13px 20px;
+  margin: 8px 0;
+  background: #e85d87;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.letter, .surprise { display: none; }
+
+.letter {
+  text-align: left;
+  line-height: 1.8;
+  margin-top: 20px;
+}
+
+.surprise {
+  line-height: 1.8;
+  margin-top: 18px;
+  text-align: center;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  z-index: -1;
+  pointer-events: none;
+  animation: rise 5s linear forwards;
+}
+
+@keyframes float {
+  50% { transform: translateY(-9px) rotate(2deg); }
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="envelope">💌</div>
+  <h1>Para ti, mi amor ❤️</h1>
+  <p class="subtitle">
+    Tengo algo bonito para ti...<br>
+    Abre tu pequeño regalo 💗
+  </p>
+
+  <button onclick="openLetter()">Abrir mi cartita 💌</button>
+
+  <section class="letter" id="letter">
+    <p>Hola, mi niña preciosa. ❤️</p>
+    <p>
+      Quería dejarte un rinconcito bonito en tu día,
+      solo para recordarte lo especial que eres para mí.
+    </p>
+    <p>
+      Espero que hoy puedas descansar, cuidarte mucho
+      y darte todo el cariño que mereces. Ojalá pudiera
+      estar cerquita de ti, abrazarte fuerte y darte un
+      besito para sacarte una sonrisa. 🥹💕
+    </p>
+    <p>
+      Me encanta hablar contigo, reírme contigo y
+      conocerte poquito a poquito. Aunque estemos lejos,
+      me alegra muchísimo tenerte en mi vida.
+    </p>
+    <p>
+      No olvides que eres una personita preciosa y que
+      mereces días llenos de ternura, tranquilidad y amor.
+      Espero poder hacerte sonreír, aunque sea desde aquí. 🌷
+    </p>
+    <p>
+      Cuídate mucho, mi amor. Te mando un abrazo enorme
+      y muchos besitos. ❤️
+    </p>
+    <p style="text-align:right">
+      Con mucho cariño,<br>tu puiu meu ❤️
+    </p>
+
+    <div style="text-align:center">
+      <button onclick="showSurprise()">
+        Una última cosita... 💝
+      </button>
+    </div>
+
+    <div class="surprise" id="surprise">
+      <p>✨ Y por si hoy nadie te lo ha recordado:</p>
+      <p><strong>
+        Eres una personita muy especial, mereces cosas
+        bonitas y espero que hoy la vida te trate con
+        mucha dulzura. 💗
+      </strong></p>
+      <p>Un besito hasta donde estés. 😘🌷</p>
+    </div>
+  </section>
+</main>
+
+<script>
+function openLetter() {
+  document.getElementById("letter").style.display = "block";
+}
+
+function showSurprise() {
+  document.getElementById("surprise").style.display = "block";
+}
+
+function makeHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = ["💗", "💕", "💖", "💘", "🌸"][
+    Math.floor(Math.random() * 5)
+  ];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (16 + Math.random() * 20) + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 5000);
+}
+
+setInterval(makeHeart, 700);
+</script>
+</body>
+</html>
